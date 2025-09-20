@@ -3,18 +3,23 @@ class Xcq < Formula
   homepage "https://github.com/alvarhansen/XcodeQuery"
   license "MIT"
 
-  # Stable release (uncomment and update on each tag)
-  # url "https://github.com/alvarhansen/XcodeQuery/archive/refs/tags/v0.1.0.tar.gz"
-  # sha256 "REPLACE_WITH_TARBALL_SHA256"
+  # Stable prebuilt binary
+  url "https://github.com/alvarhansen/XcodeQuery/releases/download/v0.0.1/xcq-v0.0.1-macos.zip"
+  sha256 "9dddee129116e9e3bc3d2028c714507a760e03470dca2f99bc272b8ccc1cd37b"
+  version "0.0.1"
 
   head "https://github.com/alvarhansen/XcodeQuery.git", branch: "main"
 
   depends_on xcode: :build
 
   def install
-    ENV["SWIFTPM_DISABLE_SANDBOX"] = "1"
-    system "swift", "build", "--disable-sandbox", "-c", "release"
-    bin.install ".build/release/xcq"
+    if build.head?
+      ENV["SWIFTPM_DISABLE_SANDBOX"] = "1"
+      system "swift", "build", "--disable-sandbox", "-c", "release"
+      bin.install ".build/release/xcq"
+    else
+      bin.install "xcq"
+    end
   end
 
   test do
