@@ -3,10 +3,9 @@ class Xcq < Formula
   homepage "https://github.com/alvarhansen/XcodeQuery"
   license "MIT"
 
-  # Stable prebuilt binary
-  url "https://github.com/alvarhansen/XcodeQuery/releases/download/v0.0.1/xcq-v0.0.1-macos.zip"
-  sha256 "9dddee129116e9e3bc3d2028c714507a760e03470dca2f99bc272b8ccc1cd37b"
-  version "0.0.1"
+  url "https://github.com/alvarhansen/XcodeQuery/releases/download/v0.1.1/xcq-v0.1.1-macos.zip"
+  sha256 "129cb50e9339e508d785c9f449f69c1fb4e42da32779efe880cf64ee52ac7e95"
+  version "0.1.1"
 
   head "https://github.com/alvarhansen/XcodeQuery.git", branch: "main"
 
